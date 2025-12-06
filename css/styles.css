@@ -4,14 +4,6 @@
    ============================================ */
 
 /* ============================================
-   FAVICON & META TAGS
-   Add to <head> of all HTML pages:
-   
-   <link rel="icon" type="image/png" href="https://files.leonldanotary.com/FAVICON.png">
-   <link rel="apple-touch-icon" href="https://files.leonldanotary.com/FAVICON.png">
-   ============================================ */
-
-/* ============================================
    RESET & BASE STYLES
    ============================================ */
 * {
@@ -424,17 +416,17 @@ body {
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary-red), var(--light-red));
-    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+    background: transparent; /* Remove background - your icons have it */
+    border-radius: 0; /* Remove border radius */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
     transition: var(--transition-elegant);
-    padding: 15px;
-    overflow: hidden;
+    padding: 0; /* Remove padding */
+    overflow: visible;
 }
 
 /* Image icon styling */
@@ -442,7 +434,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: brightness(0) invert(1); /* Makes image white */
     transition: var(--transition-elegant);
 }
 
@@ -453,12 +444,12 @@ body {
 
 .service-card:hover .service-icon {
     transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+    background: transparent; /* Remove background on hover */
 }
 
 .service-card:hover .service-icon img {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(2516%) hue-rotate(3deg) brightness(92%) contrast(96%);
-    /* Changes white to dark red on hover */
+    transform: scale(1.05);
+    /* No filter - keep original icon colors */
 }
 
 .service-title {
@@ -870,8 +861,6 @@ body {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
-
-/* Tablets & Medium Devices (1024px and below) */
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 3.2rem;
@@ -889,16 +878,9 @@ body {
     .adp-text h2 {
         font-size: 2.5rem;
     }
-    
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
 }
 
-/* Mobile Landscape & Small Tablets (768px and below) */
 @media (max-width: 768px) {
-    /* Navigation - Full Screen Mobile Menu */
     .nav-links {
         position: fixed;
         top: 0;
@@ -911,7 +893,6 @@ body {
         gap: 30px;
         transition: left 0.3s ease;
         backdrop-filter: blur(20px);
-        z-index: 999;
     }
 
     .nav-links.active {
@@ -920,7 +901,6 @@ body {
 
     .mobile-toggle {
         display: flex;
-        z-index: 1001;
     }
 
     .mobile-toggle.active span:nth-child(1) {
@@ -935,449 +915,43 @@ body {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
-    /* Hero Section */
     .hero {
         padding: 140px 0 80px;
-        min-height: 60vh;
     }
 
     .hero-title {
         font-size: 2.5rem;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    /* Section Spacing */
     .section-title {
         font-size: 2.2rem;
     }
 
-    .section-subtitle {
-        font-size: 1.1rem;
-    }
-
     .container {
         padding: 0 20px;
     }
 
-    /* Profile & Avatar */
     .profile-avatar {
         font-size: 4rem;
     }
 
-    /* ADP Section */
     .adp-text h2 {
         font-size: 2rem;
     }
 
     .adp-logo {
-        width: 150px !important;
-        max-width: 150px !important;
-        min-width: 150px !important;
+        width: 60px !important;
+        max-width: 60px !important;
+        min-width: 60px !important;
+        margin-bottom: 1rem;
+        display: block !important;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain !important;
     }
 
     .adp-features {
         grid-template-columns: 1fr;
-    }
-
-    /* Service Cards Grid */
-    .services-grid,
-    .categories-grid,
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    /* Buttons */
-    .hero-cta {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 16px 30px;
-        font-size: 1rem;
-    }
-}
-
-/* Small Mobile Devices (480px and below) */
-@media (max-width: 480px) {
-    /* Logo Sizing */
-    .logo img {
-        height: 40px;
-    }
-
-    .main-nav.scrolled .logo img {
-        height: 35px;
-    }
-
-    /* Typography */
-    .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .hero-badge {
-        font-size: 0.8rem;
-        padding: 6px 15px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-        line-height: 1.3;
-    }
-
-    .section-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-badge {
-        font-size: 0.8rem;
-        padding: 6px 15px;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 120px 0 60px;
-    }
-
-    /* Container Spacing */
-    .container {
-        padding: 0 15px;
-    }
-
-    /* Service Cards */
-    .service-card {
-        padding: 30px 25px;
-    }
-
-    .service-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .service-title {
-        font-size: 1.4rem;
-    }
-
-    .service-description {
-        font-size: 0.95rem;
-    }
-
-    .service-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-
-    /* Icons */
-    .category-icon,
-    .feature-icon,
-    .contact-icon,
-    .download-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .feature-icon,
-    .download-icon {
-        width: 55px;
-        height: 55px;
-    }
-
-    /* Profile Card */
-    .profile-card {
-        padding: 35px 25px;
-    }
-
-    .profile-avatar {
-        font-size: 3.5rem;
-    }
-
-    .profile-name {
-        font-size: 1.6rem;
-    }
-
-    .profile-title {
-        font-size: 1rem;
-    }
-
-    .profile-badges {
-        font-size: 0.8rem;
-    }
-
-    .badge {
-        padding: 5px 12px;
-        font-size: 0.8rem;
-    }
-
-    /* ADP Section */
-    .adp-banner {
-        padding: 60px 0;
-    }
-
-    .adp-text h2 {
-        font-size: 1.6rem;
-    }
-
-    .adp-text p {
-        font-size: 1rem;
-    }
-
-    .adp-logo {
-        width: 100px !important;
-        max-width: 100px !important;
-        min-width: 100px !important;
-    }
-
-    .adp-visual h3 {
-        font-size: 1.5rem;
-    }
-
-    .adp-visual p {
-        font-size: 0.95rem;
-    }
-
-    .adp-feature {
-        padding: 15px;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .adp-feature-icon {
-        font-size: 1.5rem;
-    }
-
-    .adp-feature-text {
-        font-size: 0.9rem;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 60px 0 30px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-section h4 {
-        font-size: 1.1rem;
-    }
-
-    /* Navigation Spacing */
-    .nav-links {
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .nav-links a {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-
-    /* Process Steps / Cards */
-    .process-step,
-    .contact-card,
-    .link-card,
-    .guide-card {
-        padding: 25px 20px;
-    }
-
-    /* Buttons in Mobile */
-    .btn {
-        padding: 14px 25px;
-        font-size: 0.95rem;
-    }
-
-    .btn-primary,
-    .btn-outline {
-        margin: 5px 0;
-    }
-
-    /* Service Features List */
-    .service-features li {
-        font-size: 0.9rem;
-    }
-
-    .service-features li::before {
-        width: 18px;
-        height: 18px;
-        font-size: 0.7rem;
-    }
-
-    /* Grids - Force Single Column */
-    .trust-grid,
-    .contact-grid,
-    .links-grid,
-    .download-grid,
-    .guides-grid,
-    .process-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* FAQ Items */
-    .faq-question {
-        padding: 15px 20px;
-        font-size: 0.95rem;
-    }
-
-    .faq-answer {
-        padding: 0 20px;
-    }
-
-    .faq-answer.active {
-        padding: 15px 20px;
-    }
-
-    /* Category Buttons */
-    .category-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Extra Small Devices (375px and below - iPhone SE, etc) */
-@media (max-width: 375px) {
-    .hero-title {
-        font-size: 1.75rem;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-
-    .logo img {
-        height: 35px;
-    }
-
-    .main-nav {
-        padding: 15px 0;
-    }
-
-    .service-card,
-    .category-card,
-    .feature,
-    .process-step {
-        padding: 25px 20px;
-    }
-
-    .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Very Small Devices (320px - older phones) */
-@media (max-width: 320px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.4rem;
-    }
-
-    .hero-badge,
-    .section-badge {
-        font-size: 0.75rem;
-        padding: 5px 12px;
-    }
-
-    .logo img {
-        height: 30px;
-    }
-
-    .service-icon,
-    .category-icon,
-    .feature-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .profile-avatar {
-        font-size: 3rem;
-    }
-
-    .adp-logo {
-        width: 80px !important;
-        max-width: 80px !important;
-        min-width: 80px !important;
-    }
-}
-
-/* Landscape Orientation Fixes */
-@media (max-height: 500px) and (orientation: landscape) {
-    .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
-    }
-
-    .nav-links.active {
-        overflow-y: auto;
-        padding: 80px 20px 20px;
-        justify-content: flex-start;
-    }
-
-    .profile-card {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 20px;
-        text-align: left;
-    }
-
-    .profile-avatar {
-        font-size: 3rem;
-    }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-    /* Larger tap targets for mobile */
-    .nav-links a {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .btn {
-        min-height: 44px;
-    }
-
-    .service-btn,
-    .category-btn,
-    .download-btn {
-        min-height: 44px;
-    }
-
-    /* Disable hover animations on touch devices */
-    .service-card:hover,
-    .category-card:hover,
-    .feature:hover {
-        transform: none;
-    }
-
-    /* Keep icons from rotating on touch */
-    .service-card:hover .service-icon,
-    .category-card:hover .category-icon {
-        transform: scale(1.05);
     }
 }
 
